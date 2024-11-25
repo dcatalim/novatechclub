@@ -18,8 +18,12 @@ export async function load({ params }) {
 		}
 	};
 
+	const project = await getProject();
+
+	const { title } = project;
+
 	return {
-		title: `${m.projects()} | ${config.title}`,
-		project: await getProject()
+		title: `${title} | ${config.title}`,
+		project: project
 	};
 }

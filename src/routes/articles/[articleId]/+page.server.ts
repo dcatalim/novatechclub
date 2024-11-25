@@ -20,8 +20,14 @@ export async function load({ params }) {
 		}
 	};
 
+	const article = await getArticle();
+
+	const { title } = article;
+
+	// console.log(title)
+
 	return {
-		title: `${m.articles()} | ${config.title}`,
-		article: await getArticle()
+		title: `${title} | ${config.title}`,
+		article: article
 	};
 }

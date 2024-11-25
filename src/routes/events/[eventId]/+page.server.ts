@@ -3,13 +3,10 @@ import { config } from '$lib/config';
 import * as m from '$lib/paraglide/messages.js';
 import { pb } from '$lib/pocketbase';
 
-
 export async function load({ params }) {
 	const getEvent = async () => {
 		try {
-			const event = await pb
-				.collection('events')
-				.getOne(params.eventId, { expand: 'speakers' });
+			const event = await pb.collection('events').getOne(params.eventId, { expand: 'speakers' });
 
 			return event;
 		} catch (err) {
@@ -18,8 +15,12 @@ export async function load({ params }) {
 		}
 	};
 
+	const event = await getEvent();
+
+	const { title } = event;
+
 	return {
-		title: `${m.events()} | ${config.title}`,
-		event: await getEvent()
+		title: `${title} | ${config.title}`,
+		event: event
 	};
 }
