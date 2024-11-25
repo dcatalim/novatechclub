@@ -26,7 +26,7 @@ export const load = (({ url }) => {
 				return record.views;
 			}
 		} catch (err) {
-			// console.log(err);
+			console.log('Page view counter error: ' + err);
 			throw error(404, err.message ?? 'Error');
 		}
 	};

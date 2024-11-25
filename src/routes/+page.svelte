@@ -55,7 +55,7 @@
 							</div>
 						</Card.Content>
 						<Card.Footer>
-							<Button variant="outline" href={event.id}>{m.event_button()}</Button>
+							<Button variant="outline" href="/events/{event.id}">{m.event_button()}</Button>
 						</Card.Footer>
 					</Card.Root>
 				{/each}

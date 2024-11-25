@@ -1,29 +1,58 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-	import * as Card from "$lib/components/ui/card/index.js";
+	import * as Card from '$lib/components/ui/card/index.js';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
 	import { config } from '$lib/config';
-
+	import { PUBLIC_WEB3FORMS_KEY } from '$env/static/public';
+	
 	import Mail from 'lucide-svelte/icons/mail';
 	import Linkedin from 'lucide-svelte/icons/linkedin';
 	import Instagram from 'lucide-svelte/icons/instagram';
 	import Github from 'lucide-svelte/icons/github';
 	import MessageCircleMore from 'lucide-svelte/icons/message-circle-more';
 
+	let status = $state('');
 	let name = $state('');
 	let email = $state('');
 	let subject = $state('');
 	let message = $state('');
 
-	function handleSubmit() {
-		console.log({ name, email, subject, message });
-		name = '';
-		email = '';
-		subject = '';
-		message = '';
+	const handleSubmit = async (data) => {
+		status = 'Submitting...';
+		const formData = new FormData(data.currentTarget);
+		const object = Object.fromEntries(formData);
+		const json = JSON.stringify(object);
+
+		const response = await fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: json
+		});
+		const result = await response.json();
+		if (result.success) {
+			console.log(result);
+			status = result.message || 'Success';
+		}
+	};
+
+	function once(fn) {
+		return function (event) {
+			if (fn) fn.call(this, event);
+			fn = null;
+		};
+	}
+
+	function preventDefault(fn) {
+		return function (event) {
+			event.preventDefault();
+			fn.call(this, event);
+		};
 	}
 </script>
 
@@ -36,10 +65,13 @@
 				<Card.Title>{m.contacts_form_title()}</Card.Title>
 			</Card.Header>
 			<Card.Content>
-				<form onsubmit={handleSubmit} class="space-y-4">
+				<form onsubmit={once(preventDefault(handleSubmit))} class="space-y-4">
+					<input type="hidden" name="access_key" value={PUBLIC_WEB3FORMS_KEY} />
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 					<div>
 						<Input
 							type="text"
+							name="name"
 							placeholder={m.contacts_form_name_placeholder()}
 							bind:value={name}
 							required
@@ -48,6 +80,7 @@
 					<div>
 						<Input
 							type="email"
+							name="email"
 							placeholder={m.contacts_form_email_placeholder()}
 							bind:value={email}
 							required
@@ -56,6 +89,7 @@
 					<div>
 						<Input
 							type="text"
+							name="subject"
 							placeholder={m.contacts_form_subject_placeholder()}
 							bind:value={subject}
 							required
@@ -63,6 +97,7 @@
 					</div>
 					<div>
 						<Textarea
+							name="message"
 							placeholder={m.contacts_form_message_placeholder()}
 							bind:value={message}
 							required
@@ -70,6 +105,9 @@
 					</div>
 					<Button type="submit" class="w-full">{m.contacts_form_button()}</Button>
 				</form>
+				<div class="m-4">
+					{status}
+				</div>
 			</Card.Content>
 		</Card.Root>
 

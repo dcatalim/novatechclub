@@ -10,18 +10,27 @@
 	import Github from 'lucide-svelte/icons/github';
 
 	let { member } = $props();
+
+    let open = $state(false);
+
 </script>
 
 
-<HoverCard.Root>
+<HoverCard.Root {open}>
     <HoverCard.Trigger
-        ><Avatar.Root>
+        ><!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div onclick={() => (open = !open)}>
+        
+        <Avatar.Root>
             <Avatar.Image
                 src={getImageURL('members', member.id, member.avatar)}
                 alt={member.name }
             />
             <Avatar.Fallback>{getInitials(member.name)}</Avatar.Fallback>
-        </Avatar.Root></HoverCard.Trigger
+        </Avatar.Root>
+        </div>
+        </HoverCard.Trigger
     >
     <HoverCard.Content>
         <div class="flex space-x-4">
