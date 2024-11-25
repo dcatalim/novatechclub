@@ -25,7 +25,7 @@
 
 			<div>
 				<p class="font-semibold">{member.name}</p>
-				<p class="text-sm text-muted-foreground">{member.description}</p>
+				<p class="text-sm text-muted-foreground">{member.role}</p>
 			</div>
 		</div>
 	</HoverCard.Trigger>
