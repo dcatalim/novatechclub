@@ -1,0 +1,102 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hello, {name} from en!",
+
+	"home": "Homepage",
+	"about": "About",
+	"projects": "Projects",
+	"events": "Events",
+	"articles": "Articles",
+	"contacts": "Contacts",
+	"language": "Language",
+
+	"copyright": "Nova Tech Club. All rights reserved.",
+
+	"hero_title": "Innovate. Create. Inspire.",
+	"hero_description": "Join Nova Tech Club and shape the future of technology.",
+	"hero_button": "Get Started",
+	"our_projects": "Our Projects",
+	"project_button": "Learn More",
+	"projects_more_button": "See More Projects",
+	"cta_title": "Ready to Push Boundaries?",
+	"cta_description": "Nova Tech Club is where innovation meets passion. Join us in creating the next big thing in tech.",
+	"cta_button": "Join Nova Tech Club",
+	"upcoming_events": "Upcoming Events",
+	"event_at_time": "at",
+	"event_button": "Register now",
+	"events_more_button": "See More Events",
+	"latest_articles": "Latest Articles",
+	"articles_more_button": "See More Articles",
+	"articles_by": "By",
+	"articles_on": "on",
+
+	"about_title": "About Us",
+	"about_description": "Nova Tech Club is a community of passionate tech enthusiasts dedicated to pushing the boundaries of innovation. Our diverse departments work together to create a dynamic and inspiring environment for all members.",
+	"about_joinus_title": "Join Our Community",
+	"about_joinus_description": "Become a part of Nova Tech Club and contribute to shaping the future of technology.",
+	"about_joinus_button": "Get Involved",
+
+	"projects_title": "Our Projects",
+	"projects_description": "Explore the innovative projects our members are working on. From AI and IoT to blockchain and AR, we're pushing the boundaries of technology",
+	"project_status": "Status",
+	"projects_input_placeholder": "Search projects...",
+	"project_team_members": "Team Members",
+	"projects_cta_title": "Get Involved",
+	"projects_cta_description": "Interested in contributing to one of our projects or starting your own? Join Nova Tech Club and turn your ideas into reality!",
+	"projects_cta_button": "Join a Project",
+
+	"articles_title": "Research Articles",
+	"articles_description": "Explore cutting-edge research from our club members across various technology domains.",
+	"articles_input_placeholder": "Search articles...",
+	"article_views": "Views",
+	"articles_button": "Read Full Article",
+	"articles_cta_title": "Contribute to Our Research",
+	"articles_cta_description": "Have a groundbreaking idea or research project? Share your findings with the Nova Tech Club community!",
+	"articles_cta_button": "Submit Your Research",
+
+	"events_title": "Upcoming Events",
+	"events_description": "Join us for exciting tech events, workshops, and networking opportunities!",
+	"events_input_placeholder": "Search events...",
+	"events_capacity": "Capacity",
+	"events_cta_title": "Suggest an Event",
+	"events_cta_description": "Have an idea for a tech event? We'd love to hear from you!",
+	"events_cta_button": "Submit Event Proposal",
+
+	"contacts_title": "Contact Us",
+	"contacts_form_title": "Get in Touch",
+	"contacts_form_name_placeholder": "Your Name",
+	"contacts_form_email_placeholder": "Your Email",
+	"contacts_form_subject_placeholder": "Subject",
+	"contacts_form_message_placeholder": "Your Message",
+	"contacts_form_button": "Send Message",
+	"contacts_info_title": "Contact Information",
+	"contacts_social_media": "Social Media",
+	"contacts_address": "Address",
+
+	"event_about": "About the Event",
+	"event_speakers": "Speakers",
+	"event_details": "Event Details",
+	"event_capacity": "Capacity",
+	"event_attendees": "attendees",
+	"event_back": "Back to Events",
+
+	"article_back": "Back to Articles",
+
+	"project_overview": "Project Overview",
+	"project_progress": "Progress",
+	"project_start": "Start",
+	"project_end": "End",
+	"project_milestones": "Milestones",
+	"project_updates": "Recent Updates",
+	"project_tech": "Technologies",
+	"project_qa": "Quick Actions",
+	"project_qa_contact": "Schedule Meeting",
+	"project_qa_repo": "View Repository",
+	"project_back": "Back to Projects",
+
+	"load_error": "Could not load records"
+
+
+
+
+}
