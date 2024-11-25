@@ -94,5 +94,17 @@
 	"project_qa_repo": "Ver Repositório",
 	"project_back": "Voltar aos Projetos",
 
-	"load_error": "Não foi possível carregar os registos"
+	"load_error": "Não foi possível carregar os registos",
+
+	"dep_tech": "Tecnologia e Inovação",
+	"dep_tech_desc": "Promover avanços tecnológicos e fomentar a inovação dentro do clube.",
+	"dep_events": "Eventos e Operações",
+	"dep_events_desc": "Organização e gestão de eventos, workshops e operações diárias do clube.",
+	"dep_marketing": "Marketing e Comunicação",
+	"dep_marketing_desc": "Divulgar as atividades do clube e gerir a comunicação interna e externa.",
+	"dep_research": "Investigação e Conhecimento",
+	"dep_research_desc": "Realizar investigação sobre tecnologias emergentes e partilhar conhecimento dentro da comunidade.",
+	"dep_sales": "Vendas e Relações",
+	"dep_sales_desc": "Estabelecer parcerias e gerir relações com patrocinadores e parceiros da indústria."
+
 }

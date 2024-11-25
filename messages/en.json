@@ -94,9 +94,18 @@
 	"project_qa_repo": "View Repository",
 	"project_back": "Back to Projects",
 
-	"load_error": "Could not load records"
+	"load_error": "Could not load records",
 
-
+	"dep_tech": "Technology and Innovation",
+	"dep_tech_desc": "Driving technological advancements and fostering innovation within the club.",
+	"dep_events": "Events and Operations",
+	"dep_events_desc": "Organizing and managing club events, workshops, and day-to-day operations.",
+	"dep_marketing": "Marketing and Communications",
+	"dep_marketing_desc": "Promoting the club's activities and managing internal and external communications.",
+	"dep_research": "Research and Knowledge",
+	"dep_research_desc": "Conducting research on emerging technologies and sharing knowledge within the community.",
+	"dep_sales": "Sales and Relations",
+	"dep_sales_desc": "Building partnerships and managing relationships with sponsors and industry partners."
 
 
 }

@@ -13,31 +13,31 @@
 
 	const departments = [
 		{
-			name: 'Technology and Innovation',
-			description: 'Driving technological advancements and fostering innovation within the club.',
+			name: m.dep_tech(),
+			description: m.dep_tech_desc(),
 			icon: Lightbulb
 		},
 		{
-			name: 'Events and Operations',
-			description: 'Organizing and managing club events, workshops, and day-to-day operations.',
+			name: m.dep_events(),
+			description: m.dep_events_desc(),
 			icon: Calendar
 		},
 		{
-			name: 'Marketing and Communications',
+			name: m.dep_marketing(),
 			description:
-				"Promoting the club's activities and managing internal and external communications.",
+				m.dep_marketing_desc(),
 			icon: Megaphone
 		},
 		{
-			name: 'Research and Knowledge',
+			name: m.dep_research(),
 			description:
-				'Conducting research on emerging technologies and sharing knowledge within the community.',
+				m.dep_research_desc(),
 			icon: BookOpenText
 		},
 		{
-			name: 'Sales and Relations',
+			name: m.dep_sales(),
 			description:
-				'Building partnerships and managing relationships with sponsors and industry partners.',
+				m.dep_sales_desc(),
 			icon: CircleAlert
 		}
 	];
