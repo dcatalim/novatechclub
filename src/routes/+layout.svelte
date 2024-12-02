@@ -10,7 +10,7 @@
 	import { config } from '$lib/config';
 
 	let { data, children } = $props();
-
+	
 </script>
 
 <svelte:head>

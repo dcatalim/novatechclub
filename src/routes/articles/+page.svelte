@@ -15,7 +15,7 @@
 	let search = $state('');
 
 	let filtered = $derived.by(() => {
-		const searchQuery = search;
+		search;
 
 		return data.articles.then((r) => {
 			const articles = r.map((article) => ({
@@ -24,7 +24,7 @@
 			}));
 
 			const filteredArticles = articles.filter((item) => {
-				return item.searchTerms.toLowerCase().includes(searchQuery);
+				return item.searchTerms.toLowerCase().includes(search);
 			});
 
 			return filteredArticles;
