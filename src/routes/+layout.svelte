@@ -6,11 +6,23 @@
 
 	import '../app.css';
 	import Footer from '$lib/ui/Footer.svelte';
-	import { page } from '$app/stores';
 	import { config } from '$lib/config';
+	import { page } from '$app/stores';
 
-	let { data, children } = $props();
-	
+	let { children } = $props();
+
+	const path = $page.url.pathname.toString();
+
+	const getViews = async () => {
+		const response = await fetch('/api/views', {
+			method: 'POST',
+			body: JSON.stringify({ path }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		return await response.json();
+	};
 </script>
 
 <svelte:head>
@@ -47,6 +59,6 @@
 
 		{@render children()}
 
-		<Footer views={data.views} />
+		<Footer views={getViews()} />
 	</div>
 </ParaglideJS>
