@@ -1,4 +1,3 @@
-import { pb } from '$lib/pocketbase';
 import { error, json } from '@sveltejs/kit';
 import { PB_ADM_EMAIL, PB_ADM_PW } from '$env/static/private';
 import { PUBLIC_PB_HOST } from '$env/static/public';

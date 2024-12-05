@@ -130,9 +130,10 @@
 
 	onMount(() => {
 		// $page.url.searchParams.forEach((value, key) => console.log(key, value));
-		console.log('ran on mount');
+
 		selectValue = $page.url.searchParams.get('author') || '';
 		inputValue = $page.url.searchParams.get('query') || '';
+		sort = $page.url.searchParams.get('sort') || '';
 		currentPage = Number($page.url.searchParams.get('page') || 1);
 		fetchResults();
 	});
