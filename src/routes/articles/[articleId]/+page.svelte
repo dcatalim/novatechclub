@@ -41,6 +41,9 @@
 		</header>
 
 		<div class="prose prose-slate mb-8 max-w-none lg:prose-lg">
+			<blockquote class="mt-6 border-l-2 pl-6 italic">
+				{data.article?.abstract}
+			  </blockquote>
 			{@html data.article?.text}
 		</div>
 

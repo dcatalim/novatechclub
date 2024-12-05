@@ -133,13 +133,14 @@
 
 		selectValue = $page.url.searchParams.get('author') || '';
 		inputValue = $page.url.searchParams.get('query') || '';
-		sort = $page.url.searchParams.get('sort') || '';
+		sort = $page.url.searchParams.get('sort') || 'newest';
 		currentPage = Number($page.url.searchParams.get('page') || 1);
 		fetchResults();
 	});
 </script>
 
 <main class="container mx-auto flex-grow px-4 py-8">
+	<h2>{sort}</h2>
 	<h1 class="mb-8 text-center text-4xl font-bold">Advanced Articles Search Engine</h1>
 	<section class="mb-12">
 		<div class="max-w-8xl mx-auto grid grid-cols-1 gap-4 sm:grid-cols-6">

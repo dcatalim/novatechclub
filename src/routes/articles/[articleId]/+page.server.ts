@@ -3,7 +3,7 @@ import * as m from '$lib/paraglide/messages.js';
 import { pb } from '$lib/pocketbase';
 import { error } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ params, fetch }) {
 	const getArticle = async () => {
 		try {
 			const article = await pb
@@ -11,9 +11,23 @@ export async function load({ params }) {
 				.getOne(params.articleId, { expand: 'author' });
 			// console.log(article)
 
-			await pb.collection('articles').update(article.id, { views: article.views + 1 });
+			const updateViews = async () => {
+				const response = await fetch('/api/articleviews', {
+					method: 'POST',
+					body: JSON.stringify({ 
+						id: params.articleId,
+						views: article.views
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				});
+				return await response.json();
+			};
 
-			return article;
+			const article2 = {...article, views: updateViews()}
+
+			return article2;
 		} catch (err) {
 			// console.log(err);
 			throw error(404, err.message ?? 'Error');
