@@ -3,7 +3,7 @@
 	import { formatDate, getImageURL, getInitials } from '$lib/tools';
 
 	import { Button } from '$lib/components/ui/button';
-	import * as Card from "$lib/components/ui/card/index.js";
+	import * as Card from '$lib/components/ui/card/index.js';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
 	import * as Avatar from '$lib/components/ui/avatar';
@@ -14,7 +14,6 @@
 	import MapPin from 'lucide-svelte/icons/map-pin';
 
 	let { data } = $props();
-
 </script>
 
 <svelte:head>
@@ -40,11 +39,11 @@
 				</div>
 			</div>
 			{#if data.event.tags}
-			<div class="mb-4 flex flex-wrap gap-2">
-				{#each data.event.tags.split(';') as tag}
-					<Badge variant="secondary">{tag}</Badge>
-				{/each}
-			</div>
+				<div class="mb-4 flex flex-wrap gap-2">
+					{#each data.event.tags.split(';') as tag}
+						<Badge variant="secondary">{tag}</Badge>
+					{/each}
+				</div>
 			{/if}
 		</header>
 
@@ -52,29 +51,30 @@
 			<h2 class="mb-4 text-2xl font-semibold">{m.event_about()}</h2>
 			<p class="text-gray-700">{data.event.description}</p>
 		</div>
-
-		<div class="mb-8">
-			<h2 class="mb-4 text-2xl font-semibold">{m.event_speakers()}</h2>
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-				{#each data.event?.expand?.speakers as speaker}
-					<Card.Root>
-						<Card.Content class="flex items-center p-4">
-							<Avatar.Root class="mr-4 h-12 w-12">
-								<Avatar.Image
-									src={getImageURL('speakers', speaker.id, speaker.avatar)}
-									alt={speaker.name }
-								/>
-								<Avatar.Fallback>{getInitials(speaker.name)}</Avatar.Fallback>
-							</Avatar.Root>
-							<div>
-								<h3 class="font-semibold">{speaker.name}</h3>
-								<p class="text-sm text-muted-foreground">{speaker.role}</p>
-							</div>
-						</Card.Content>
-					</Card.Root>
-				{/each}
+		{#if data.event.expand?.speakers}
+			<div class="mb-8">
+				<h2 class="mb-4 text-2xl font-semibold">{m.event_speakers()}</h2>
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+					{#each data.event?.expand?.speakers as speaker}
+						<Card.Root>
+							<Card.Content class="flex items-center p-4">
+								<Avatar.Root class="mr-4 h-12 w-12">
+									<Avatar.Image
+										src={getImageURL('speakers', speaker.id, speaker.avatar)}
+										alt={speaker.name}
+									/>
+									<Avatar.Fallback>{getInitials(speaker.name)}</Avatar.Fallback>
+								</Avatar.Root>
+								<div>
+									<h3 class="font-semibold">{speaker.name}</h3>
+									<p class="text-sm text-muted-foreground">{speaker.role}</p>
+								</div>
+							</Card.Content>
+						</Card.Root>
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 
 		<div class="mb-8">
 			<h2 class="mb-4 text-2xl font-semibold">{m.event_details()}</h2>
@@ -97,7 +97,7 @@
 					<Separator class="my-4" />
 					<div class="text-center">
 						<!-- <p class="mb-2">Spots remaining: {event.capacity - event.registeredAttendees}</p> -->
-						<Button size="lg" href={data.event.link} target='_blank'>{m.event_button()}</Button>
+						<Button size="lg" href={data.event.link} target="_blank">{m.event_button()}</Button>
 					</div>
 				</Card.Content>
 			</Card.Root>

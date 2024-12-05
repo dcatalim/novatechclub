@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 
-	import * as Card from "$lib/components/ui/card/index.js";
+	import * as Card from '$lib/components/ui/card/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { formatDate } from '$lib/tools';
@@ -79,14 +79,16 @@
 							</div>
 						</div>
 
-						<div class="mt-1 flex items-center">
-							<Podcast class="mr-2 h-4 w-4" />
-							<div class="flex flex-row gap-4">
-								{#each event.expand.speakers as speaker}
-									<p>{speaker.name}</p>
-								{/each}
+						{#if event.expand?.speakers}
+							<div class="mt-1 flex items-center">
+								<Podcast class="mr-2 h-4 w-4" />
+								<div class="flex flex-row gap-4">
+									{#each event.expand.speakers as speaker}
+										<p>{speaker.name}</p>
+									{/each}
+								</div>
 							</div>
-						</div>
+						{/if}
 						<p class="my-4">{event.description}</p>
 						<p class="flex items-center text-sm text-muted-foreground">
 							<Users class="mr-2 h-4 w-4" />

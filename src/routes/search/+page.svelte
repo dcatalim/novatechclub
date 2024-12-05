@@ -1,12 +1,10 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-
+	import { pb } from '$lib/pocketbase';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Input } from '$lib/components/ui/input';
 
 	import Search from 'lucide-svelte/icons/search';
-
-	import PocketBase from 'pocketbase';
 
 	let input = $state('');
 	let search = $derived(input.trim());
@@ -16,8 +14,6 @@
 	const minLenght = 2;
 
 	let debounceTimeout: NodeJS.Timeout;
-
-	const pb = new PocketBase('https://club.pockethost.io'); // Replace with your PocketBase URL
 
 	async function fetchResults() {
 		if (search.length < minLenght) {
@@ -76,7 +72,7 @@
 	}
 </script>
 
-<main class="container mx-auto flex-grow px-4 py-8">
+<main class="container mx-auto flex-grow content-center px-4 py-8">
 	<h1 class="mb-8 text-center text-4xl font-bold">Articles Search Engine</h1>
 
 	<section class="mb-12">
@@ -124,6 +120,10 @@
 					{/if}
 				</Card.Root>
 			{/if}
+
+			<div class="p-2 justify-items-center">
+				<p class="text-sm text-muted-foreground">Or try our <a href="/search/advanced" class="hover:underline font-medium">advanced article search</a></p>
+			</div>
 		</div>
 	</section>
 </main>

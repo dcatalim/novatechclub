@@ -20,15 +20,15 @@
 <div class="container mx-auto px-4 py-8">
 	<article class="mx-auto max-w-3xl">
 		<header class="mb-8">
-			<h1 class="mb-4 text-4xl font-bold">{data.article?.title }</h1>
+			<h1 class="mb-4 text-4xl font-bold">{data.article?.title}</h1>
 			<div class="mb-4 flex items-center justify-between">
-				<HoverAuthor member={data.article.expand.author} />
+				<HoverAuthor member={data.article.expand?.author} />
 
 				<div class="flex items-center text-sm text-muted-foreground">
 					<Calendar class="mr-1 h-4 w-4" />
-					<span class="mr-4">{formatDate(data.article?.date) }</span>
+					<span class="mr-4">{formatDate(data.article?.date)}</span>
 					<Clock class="mr-1 h-4 w-4" />
-					<span>{data.article?.readTime }</span>
+					<span>{data.article?.readTime}</span>
 				</div>
 			</div>
 			{#if data.article?.tags}
@@ -41,7 +41,7 @@
 		</header>
 
 		<div class="prose prose-slate mb-8 max-w-none lg:prose-lg">
-			{@html data.article?.text }
+			{@html data.article?.text}
 		</div>
 
 		<Separator class="my-8" />
