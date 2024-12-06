@@ -13,7 +13,7 @@ export const load = (async ({ url }) => {
 			return records;
 		} catch (err) {
 			// console.log(err);
-			throw error(404, err.message ?? 'Error');
+			error(500, 'Oh no!');
 		}
 	};
 
@@ -67,8 +67,7 @@ export const load = (async ({ url }) => {
 			return { items: results, count };
 		} catch (err) {
 			// console.log(err);
-			return err
-			// throw error(404, err.message ?? 'Error');
+			// error(404, err.message ?? 'Error');
 		}
 	};
 

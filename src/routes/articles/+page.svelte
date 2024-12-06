@@ -47,6 +47,10 @@
 					bind:value={search}
 				/>
 			</div>
+
+			<div class="p-2 justify-items-center">
+				<p class="text-sm text-muted-foreground">Or try our <a href="/search" class="hover:underline font-medium">search engine <i>(beta)</i></a></p>
+			</div>
 		</div>
 	</section>
 

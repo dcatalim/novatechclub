@@ -185,7 +185,7 @@
 								</Table.Body>
 							{/if}
 						{:catch error}
-							<p>Error: {error.message}</p>
+							<Table.Caption>Error: {error}</Table.Caption>
 						{/await}
 					{/if}
 				</Table.Root>
@@ -198,7 +198,7 @@
 						submit={handleInput}
 					/>
 				{:catch error}
-					<p>Error: {error.message}</p>
+					<p>Error: {error}</p>
 				{/await}
 			</div>
 		</div>

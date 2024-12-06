@@ -15,10 +15,7 @@ export function load() {
 			return projects
 		} catch (err) {
 			// console.log(err);
-			return err
-
-			// throw error(404, err.message ?? 'Error');
-			
+			error(404, err.message ?? 'Error');
 		}
 	};
 

@@ -44,6 +44,7 @@
 			<blockquote class="mt-6 border-l-2 pl-6 italic">
 				{data.article?.abstract}
 			  </blockquote>
+			  
 			{@html data.article?.text}
 		</div>
 
