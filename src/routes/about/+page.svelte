@@ -68,6 +68,20 @@
 		{/each}
 	</section>
 
+	<section class="my-12">
+		<p class="mb-8 text-center font-semibold text-2xl">
+			Supported by:
+		</p>
+		<div class="mx-auto w-full justify-items-center">
+			<div class="w-[220px]">
+				<a href="https://www.hetzner.com/" target="_blank" rel="noreferrer nofollow">
+					<img src="/hetzner-logo.svg" alt="Hetzner Logo" />
+				</a>
+			</div>
+			
+		</div>
+	</section>
+
 	<section class="mt-16 text-center">
 		<h2 class="mb-4 text-3xl font-bold">{m.about_joinus_title()}</h2>
 		<p class="mb-8 text-xl">{m.about_joinus_description()}</p>

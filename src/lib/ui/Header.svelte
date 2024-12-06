@@ -9,7 +9,7 @@
 	<div class="container mx-auto flex items-center justify-between">
 		<div class="w-[150px]">
 			<a href="/">
-				<img src="/logo-white.svg" alt="An alt text" />
+				<img src="/logo-white.svg" alt="Nova Tech Club Logo" />
 			</a>
 		</div>
 

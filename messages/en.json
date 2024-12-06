@@ -37,7 +37,7 @@
 	"about_joinus_button": "Get Involved",
 
 	"projects_title": "Our Projects",
-	"projects_description": "Explore the innovative projects our members are working on. From AI and IoT to blockchain and AR, we're pushing the boundaries of technology",
+	"projects_description": "At Nova Tech Club, we bring our mission and vision to life by diving into cutting-edge projects that explore the forefront of technology. From cryptocurrencies and machine learning to sentiment analysis and automated model development, our members are working to solve real-world challenges while bridging the gap between academia and industry.",
 	"project_status": "Status",
 	"projects_input_placeholder": "Search projects...",
 	"project_team_members": "Team Members",
@@ -46,20 +46,20 @@
 	"projects_cta_button": "Join a Project",
 
 	"articles_title": "Research Articles",
-	"articles_description": "Explore cutting-edge research from our club members across various technology domains.",
+	"articles_description": "Nova Tech Club bridges the gap between students, the tech world, and the industry by sharing insights on technology and innovation. Our articles feature the latest advancements and provide opportunities for learning and collaboration.",
 	"articles_input_placeholder": "Search articles...",
 	"article_views": "Views",
 	"articles_button": "Read Full Article",
 	"articles_cta_title": "Contribute to Our Research",
-	"articles_cta_description": "Have a groundbreaking idea or research project? Share your findings with the Nova Tech Club community!",
+	"articles_cta_description": "Have a groundbreaking idea, research project, or a topic you’d like to explore? Collaborate with Nova Tech Club to turn your vision into reality. Whether you want to share findings or propose new areas of research, we’re here to support innovation and creativity. \nClick below to submit your research or suggest a topic you’re passionate about:",
 	"articles_cta_button": "Submit Your Research",
 
 	"events_title": "Upcoming Events",
-	"events_description": "Join us for exciting tech events, workshops, and networking opportunities!",
+	"events_description": "Join us for exciting tech events, hands-on workshops, and networking opportunities with leading industry professionals and corporate partners! Explore innovative trends, gain insights from experts, and connect with like-minded tech enthusiasts.",
 	"events_input_placeholder": "Search events...",
 	"events_capacity": "Capacity",
 	"events_cta_title": "Suggest an Event",
-	"events_cta_description": "Have an idea for a tech event? We'd love to hear from you!",
+	"events_cta_description": "Have an idea for an exciting tech event, workshop, or panel discussion? Whether it's an engaging seminar, a hands-on hackathon, or a networking session with industry leaders, we’d love to bring your vision to life! \nClick below to share your idea and collaborate with us to make it happen:",
 	"events_cta_button": "Submit Event Proposal",
 
 	"contacts_title": "Contact Us",
@@ -97,15 +97,15 @@
 	"load_error": "Could not load records",
 
 	"dep_tech": "Technology and Innovation",
-	"dep_tech_desc": "Driving technological advancements and fostering innovation within the club.",
+	"dep_tech_desc": "Driving innovation in software and AI through hands-on projects, fostering continuous skills enhancement.",
 	"dep_events": "Events and Operations",
-	"dep_events_desc": "Organizing and managing club events, workshops, and day-to-day operations.",
+	"dep_events_desc": "Plan and organize webinars & workshops, team-building events and company visits, bridging students with industry leaders.",
 	"dep_marketing": "Marketing and Communications",
-	"dep_marketing_desc": "Promoting the club's activities and managing internal and external communications.",
+	"dep_marketing_desc": "Expand club’s presence and message through inspiring and relevant content in social media. Connect and engage the tech community by promoting club’s activities.",
 	"dep_research": "Research and Knowledge",
-	"dep_research_desc": "Conducting research on emerging technologies and sharing knowledge within the community.",
+	"dep_research_desc": "Research and share insights on the latest tech trends and emerging technologies,  promoting knowledge within the community.",
 	"dep_sales": "Sales and Relations",
-	"dep_sales_desc": "Building partnerships and managing relationships with sponsors and industry partners."
+	"dep_sales_desc": "Extend the club’s impact by forming partnerships, raising sponsorships and fostering collaboration with key players in the tech industry."
 
 
 }

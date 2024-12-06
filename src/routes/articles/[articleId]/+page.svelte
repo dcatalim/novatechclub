@@ -7,7 +7,7 @@
 
 	import Calendar from 'lucide-svelte/icons/calendar';
 	import Clock from 'lucide-svelte/icons/clock';
-	import HoverAuthor from '$lib/ui/HoverAuthor.svelte';
+	import HoverAuthor from './HoverAuthor.svelte';
 
 	let { data } = $props();
 </script>
@@ -50,29 +50,6 @@
 		<Separator class="my-8" />
 	</article>
 
-	<!-- <aside class="mt-16">
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>Related Articles</Card.Title>
-			</Card.Header>
-			<Card.Content>
-				<ul class="space-y-4">
-					<li>
-						<a href="#" class="block hover:underline">The Rise of Progressive Web Apps</a>
-						<p class="text-sm text-muted-foreground">5 min read</p>
-					</li>
-					<li>
-						<a href="#" class="block hover:underline">Accessibility in Modern Web Design</a>
-						<p class="text-sm text-muted-foreground">7 min read</p>
-					</li>
-					<li>
-						<a href="#" class="block hover:underline">The Impact of 5G on Web Technologies</a>
-						<p class="text-sm text-muted-foreground">6 min read</p>
-					</li>
-				</ul>
-			</Card.Content>
-		</Card.Root>
-	</aside> -->
 	<footer>
 		<div class="flex items-center justify-between">
 			<Button variant="outline" href="/articles">{m.article_back()}</Button>

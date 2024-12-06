@@ -15,6 +15,8 @@
 	const currentYear = new Date().getFullYear();
 
 	let { views } = $props();
+
+	$effect(() => console.log(views));
 </script>
 
 <footer class="container mx-auto px-4 py-8">
@@ -32,6 +34,8 @@
 					<p>...</p>
 				{:then views}
 					{views}
+				{:catch error}
+					{error.message}
 				{/await}
 			</div>
 		</div>
