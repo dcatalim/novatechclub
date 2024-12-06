@@ -2,7 +2,7 @@
 	import { Label } from '$lib/components/ui/label';
 	import * as Select from '$lib/components/ui/select';
 
-	let { author = $bindable(), submit, loading = $bindable(), dataAuthors } = $props();
+	let { author = $bindable(), handleInput, loading = $bindable(), dataAuthors } = $props();
 
 	const authors = dataAuthors.map((record) => {
 		return {
@@ -21,7 +21,7 @@
 	type="single"
 	name="author"
 	bind:value={author}
-	onValueChange={submit}
+	onValueChange={handleInput}
 	disabled={loading}
 >
 	<Select.Trigger class="w-[180px]">

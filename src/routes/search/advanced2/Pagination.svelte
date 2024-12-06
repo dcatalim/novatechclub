@@ -5,7 +5,7 @@
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
-	let { page = $bindable() , count = $bindable() , perPage, submit } = $props();
+	let { page = $bindable() , count = $bindable() , perPage, handleInput } = $props();
 
     const isDesktop = new MediaQuery('(min-width: 768px)');
 
@@ -13,7 +13,7 @@
 
 </script>
 
-<Pagination.Root bind:page {count} {perPage} {siblingCount} onPageChange={submit}>
+<Pagination.Root bind:page {count} {perPage} {siblingCount} onPageChange={handleInput}>
 	{#snippet children({ pages, currentPage })}
 		<Pagination.Content>
 			<Pagination.Item>

@@ -21,31 +21,31 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const minLength = 1;
+	const minLength = 2;
 	const perPage = 5;
 
 	let inputValue = $state('');
 	let query = $derived(inputValue.trim());
 	let results = $state([]);
 	let loading = $state(false);
-	let selectValue = $state('');
+	let author = $state('');
 	let debounceTimeout: NodeJS.Timeout;
 	let count = $state(0);
 	let currentPage = $state(1);
 	let lastPage = $state(1);
 	let sort = $state('newest');
 
-	async function updateSearchParams() {
+	function updateSearchParams() {
 		const searchParams = new URLSearchParams($page.url.searchParams);
 
 		searchParams.set('query', query);
-		searchParams.set('author', selectValue);
+		searchParams.set('author', author);
 		searchParams.set('sort', sort);
 		searchParams.set('page', String(currentPage));
 
 		searchParams.sort()
 
-		await goto(`?${searchParams.toString()}`, { keepFocus: true, replaceState: true });
+		goto(`?${searchParams.toString()}`, { keepFocus: true, replaceState: true });
 	}
 
 	async function fetchResults() {
@@ -57,8 +57,8 @@
 			filters.push(`(title~"${query}" || abstract~"${query}")`);
 		} else return;
 
-		if (selectValue.length > 0) {
-			filters.push(`author.id="${selectValue}"`);
+		if (author.length > 0) {
+			filters.push(`author.id="${author}"`);
 		}
 
 		if (lastPage === currentPage) {
@@ -131,7 +131,7 @@
 	onMount(() => {
 		// $page.url.searchParams.forEach((value, key) => console.log(key, value));
 
-		selectValue = $page.url.searchParams.get('author') || '';
+		author = $page.url.searchParams.get('author') || '';
 		inputValue = $page.url.searchParams.get('query') || '';
 		sort = $page.url.searchParams.get('sort') || 'newest';
 		currentPage = Number($page.url.searchParams.get('page') || 1);
@@ -140,15 +140,14 @@
 </script>
 
 <main class="container mx-auto flex-grow px-4 py-8">
-	<h2>{sort}</h2>
 	<h1 class="mb-8 text-center text-4xl font-bold">Advanced Articles Search Engine</h1>
 	<section class="mb-12">
-		<div class="max-w-8xl mx-auto grid grid-cols-1 gap-4 sm:grid-cols-6">
-			<div class="w-full sm:mt-12">
-				<SelectAuthor bind:selectValue bind:loading {fetchResults} dataAuthors={data.authors} />
+		<div class="max-w-8xl mx-auto grid grid-cols-1 gap-4 lg:grid-cols-6">
+			<div class="w-full md:mt-12">
+				<SelectAuthor bind:author bind:loading submit={fetchResults} dataAuthors={data.authors} />
 			</div>
 
-			<div class="col-span-5 w-full">
+			<div class="lg:col-span-5 w-full">
 				<div class="flex gap-2">
 					<div class="relative w-full">
 						<Search
@@ -248,7 +247,7 @@
 				</Table.Root>
 
 				{#if results.length > 0 && !loading}
-					<Pagination bind:page={currentPage} bind:count {perPage} {fetchResults} />
+					<Pagination bind:page={currentPage} bind:count {perPage} submit={fetchResults} />
 				{/if}
 			</div>
 		</div>

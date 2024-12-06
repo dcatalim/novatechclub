@@ -43,7 +43,8 @@
 
 	function handleInput() {
 		clearTimeout(debounceTimeout);
-		debounceTimeout = setTimeout(() => fetchResults(), 300); // Adjust debounce delay as needed
+		debounceTimeout = setTimeout(() => fetchResults(), 500); // Adjust debounce delay as needed
+		results = []
 	}
 
 	function replaceTextWithMarker(text: string, match: string) {
