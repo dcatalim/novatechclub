@@ -1,10 +1,9 @@
-import { error } from '@sveltejs/kit';
+import { error, json } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import { pb } from '$lib/pocketbase';
+import { message } from 'sveltekit-superforms';
 
-const minLength = 2;
-
-export const load = (async ({ url, fetch }) => {
+export const load = (async ({ url }) => {
 	const getAuthors = async () => {
 		try {
 			const records = await pb.collection('members').getFullList({
@@ -18,20 +17,24 @@ export const load = (async ({ url, fetch }) => {
 		}
 	};
 
-	async function fetchResults() {
+	const fetchResults = async () => {
 		let filter: string = '';
 		let filters: string[] = [];
 
 		const query = url.searchParams.get('query') || '';
 		const author = url.searchParams.get('author') || '';
-		const sort = url.searchParams.get('sort') || '';
-		const perPage = Number(url.searchParams.get('perPage')) || 1;
-		const page = Number(url.searchParams.get('page')) || 5;
+		const sort = url.searchParams.get('sort') || 'newest';
+		const perPage = Number(url.searchParams.get('perPage')) || 5;
+		const page = Number(url.searchParams.get('page')) || 1;
 
-		if (query.length === 0) {
-		} else if (query.length >= minLength) {
+		// if (query.length === 0) {
+		// } else if (query.length >= minLength) {
+		// 	filters.push(`(title~"${query}" || abstract~"${query}")`);
+		// } else return;
+
+		if (query.length > 0) {
 			filters.push(`(title~"${query}" || abstract~"${query}")`);
-		} else return;
+		}
 
 		if (author.length > 0) {
 			filters.push(`author.id="${author}"`);
@@ -63,9 +66,10 @@ export const load = (async ({ url, fetch }) => {
 
 			return { items: results, count };
 		} catch (err) {
-			console.error('Error fetching results:', err);
+			// console.error('Error fetching results:', err);
+			return err;
 		}
-	}
+	};
 
 	function replaceTextWithMarker(text: string, match: string) {
 		const regex = new RegExp(match, 'gi');
@@ -94,7 +98,6 @@ export const load = (async ({ url, fetch }) => {
 
 	return {
 		results: fetchResults(),
-		minLength,
 		authors: await getAuthors()
 	};
 }) satisfies PageLoad;

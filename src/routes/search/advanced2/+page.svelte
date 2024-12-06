@@ -7,11 +7,10 @@
 	import { Button, buttonVariants } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { Badge } from '$lib/components/ui/badge';
+	import { Skeleton } from '$lib/components/ui/skeleton/index.js';
 
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
-	import { pb } from '$lib/pocketbase';
 	import * as m from '$lib/paraglide/messages.js';
 
 	import SelectAuthor from './SelectAuthor.svelte';
@@ -21,12 +20,13 @@
 
 	let { data }: { data: PageData } = $props();
 
+	const minLength = 2;
 
 	let input = $state($page.url.searchParams.get('query') || '');
 	let author = $state($page.url.searchParams.get('author') || '');
-	let sort = $state($page.url.searchParams.get('sort') || '');
+	let sort = $state($page.url.searchParams.get('sort') || 'newest');
 	let currentPage = $state(Number($page.url.searchParams.get('page') || 1));
-	let perPage = $state(Number($page.url.searchParams.get('perPage') || 1));
+	let perPage = $state(Number($page.url.searchParams.get('perPage') || 5));
 
 	let query = $derived(input.trim());
 	let loading = $state(false);
@@ -41,26 +41,33 @@
 		}
 		lastPage = currentPage;
 
-		searchParams.set('query', query);
 		searchParams.set('author', author);
 		searchParams.set('sort', sort);
 		searchParams.set('page', String(currentPage));
 		searchParams.set('perPage', String(perPage));
 
-		searchParams.sort();
+		if (query.length === 0 || query.length >= minLength) {
+			searchParams.set('query', query);
 
-		goto(`?${searchParams.toString()}`, { keepFocus: true, replaceState: true });
+			searchParams.sort();
+
+
+			goto(`?${searchParams.toString()}`, { keepFocus: true, replaceState: true }).then(
+				() => (loading = false)
+			);
+		} else return;
 	}
 
 	function handleInput() {
 		loading = true;
+
 		clearTimeout(debounceTimeout);
 
 		debounceTimeout = setTimeout(() => {
 			updateSearchParams();
-			loading = false;
 		}, 500); // Adjust debounce delay as needed
 	}
+
 </script>
 
 <main class="container mx-auto flex-grow px-4 py-8">
@@ -89,10 +96,10 @@
 					<Button onclick={handleInput} disabled={loading}>Search</Button>
 				</div>
 
-				{#if query.length > 0 && query.length < data.minLength}
+				{#if query.length > 0 && query.length < minLength}
 					<Card.Root class="mt-2 p-3 ">
 						<p class="text-sm text-muted-foreground">
-							Please enter at least {data.minLength} characters to search
+							Please enter at least {minLength} characters to search
 						</p>
 					</Card.Root>
 				{/if}
@@ -120,62 +127,77 @@
 						<Table.Row>
 							<Table.Head class="w-[120px]">Author</Table.Head>
 							<Table.Head>Title</Table.Head>
-							<Table.Head class="hidden sm:visible">Abstract</Table.Head>
+							<Table.Head class="hidden sm:table-cell	">Abstract</Table.Head>
 							<Table.Head>Tags</Table.Head>
 							<Table.Head class="text-right">Views</Table.Head>
 						</Table.Row>
 					</Table.Header>
 
-					{#await data.results}
-						<Table.Caption>Loading...</Table.Caption>
-					{:then results}
-						{#if results?.count === 0}
-							<Table.Caption>No results found</Table.Caption>
-						{:else}
-							<Table.Body>
-								{#each results?.items as result}
-									<Table.Row>
-										<Table.Cell class="font-medium"
-											><a href="/articles/{result.id}" class="hover:underline">
-												{result.author}
-											</a></Table.Cell
-										>
-										<Table.Cell>
-											<a href="/articles/{result.id}" class="hover:underline">
-												{@html result.title}
-											</a>
-										</Table.Cell>
-										<Table.Cell class="hidden sm:flex"
-											><a href="/articles/{result.id}" class="hover:underline">
-												{@html result.text}
-											</a></Table.Cell
-										>
+					{#if loading}
+						<!-- <Table.Caption>Loading...</Table.Caption> -->
+						<Table.Body>
+							{#each Array(perPage ?? 5) as _, i (i)}
+								<Table.Row>
+									{#each Array(5) as _, i (i)}
+										<Table.Cell><Skeleton class="h-4 w-full" /></Table.Cell>
+									{/each}
+								</Table.Row>
+							{/each}
+						</Table.Body>
+					{:else}
+						{#await data.results then results}
+							{#if results?.count === 0}
+								<Table.Caption>No results found</Table.Caption>
+							{:else}
+								<Table.Body>
+									{#each results?.items as result}
+										<Table.Row>
+											<Table.Cell class="font-medium"
+												><a href="/articles/{result.id}" class="hover:underline">
+													{result.author}
+												</a></Table.Cell
+											>
+											<Table.Cell>
+												<a href="/articles/{result.id}" class="hover:underline">
+													{@html result.title}
+												</a>
+											</Table.Cell>
+											<Table.Cell class="hidden sm:flex"
+												><a href="/articles/{result.id}" class="hover:underline">
+													{@html result.text}
+												</a></Table.Cell
+											>
 
-										<Table.Cell
-											><a href="/articles/{result.id}">
-												<div class="mb-4 flex flex-wrap gap-2">
-													{#each result.tags.split(';') as tag}
-														<Badge variant="secondary">{@html tag}</Badge>
-													{/each}
-												</div>
-											</a></Table.Cell
-										>
-										<Table.Cell class="text-right"
-											><a href="/articles/{result.id}" class="hover:underline">
-												{result.views}
-											</a></Table.Cell
-										>
-									</Table.Row>
-								{/each}
-							</Table.Body>
-						{/if}
-					{/await}
+											<Table.Cell
+												><a href="/articles/{result.id}">
+													<div class="mb-4 flex flex-wrap gap-2">
+														{#each result.tags.split(';') as tag}
+															<Badge variant="secondary">{@html tag}</Badge>
+														{/each}
+													</div>
+												</a></Table.Cell
+											>
+											<Table.Cell class="text-right"
+												><a href="/articles/{result.id}" class="hover:underline">
+													{result.views}
+												</a></Table.Cell
+											>
+										</Table.Row>
+									{/each}
+								</Table.Body>
+							{/if}
+						{:catch error}
+							<p>Error: {error.message}</p>
+						{/await}
+					{/if}
 				</Table.Root>
 
 				{#await data.results then results}
-					{#if results?.count > 0 && !loading}
-						<Pagination bind:page={currentPage} count={results?.count} {perPage} {handleInput}/>
-					{/if}
+					<!-- {#if results?.count > 0} -->
+					<Pagination bind:page={currentPage} count={results?.count} {perPage} {handleInput} />
+				{:catch error}
+					<p>Error: {error.message}</p>
+					<!-- {/if} -->
 				{/await}
 			</div>
 		</div>

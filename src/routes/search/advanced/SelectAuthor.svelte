@@ -16,7 +16,7 @@
 	);
 </script>
 
-<Label for="author">Author</Label>
+<p class="text-sm font-medium">Author</p>
 <Select.Root
 	type="single"
 	name="author"

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Label } from '$lib/components/ui/label';
 	import * as Select from '$lib/components/ui/select';
 
 	let { author = $bindable(), handleInput, loading = $bindable(), dataAuthors } = $props();
@@ -16,7 +15,7 @@
 	);
 </script>
 
-<Label for="author">Author</Label>
+<p class="text-sm font-medium">Author</p>
 <Select.Root
 	type="single"
 	name="author"
