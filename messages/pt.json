@@ -111,7 +111,8 @@
 
     "search_title": "Motor de Busca de Artigos",
     "search_placeholder": "Buscar...",
-    "search_advanced_alternative": "Ou experimente nossa",
+    "search_advanced_alternative": "Ou experimente",
+    "search_redirect": "motor de busca de artigos",
     "search_advanced_redirect": "busca avançada de artigos",
     "no_results_found": "Nenhum resultado encontrado",
     "searching": "Buscando...",

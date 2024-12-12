@@ -112,6 +112,7 @@
 	"search_title": "Articles Search Engine",
 	"search_placeholder": "Search...",
 	"search_advanced_alternative": "Or try our",
+	"search_redirect": "article search engine",
 	"search_advanced_redirect": "advanced article search",
 	"no_results_found" : "No results found",
 	"searching" :"Searching...",
