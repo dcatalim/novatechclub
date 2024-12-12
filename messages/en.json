@@ -9,6 +9,8 @@
 	"articles": "Articles",
 	"contacts": "Contacts",
 	"language": "Language",
+	"search_engine": "Search Engine",
+	"advanced_search": "Advanced Search",
 
 	"copyright": "Nova Tech Club. All rights reserved.",
 
@@ -94,7 +96,7 @@
 	"project_qa_repo": "View Repository",
 	"project_back": "Back to Projects",
 
-	"load_error": "Could not load records",
+	"load_error": "There was an error",
 
 	"dep_tech": "Technology and Innovation",
 	"dep_tech_desc": "Driving innovation in software and AI through hands-on projects, fostering continuous skills enhancement.",
@@ -105,7 +107,31 @@
 	"dep_research": "Research and Knowledge",
 	"dep_research_desc": "Research and share insights on the latest tech trends and emerging technologies,  promoting knowledge within the community.",
 	"dep_sales": "Sales and Relations",
-	"dep_sales_desc": "Extend the club’s impact by forming partnerships, raising sponsorships and fostering collaboration with key players in the tech industry."
+	"dep_sales_desc": "Extend the club’s impact by forming partnerships, raising sponsorships and fostering collaboration with key players in the tech industry.",
+
+	"search_title": "Articles Search Engine",
+	"search_placeholder": "Search...",
+	"search_advanced_alternative": "Or try our",
+	"search_advanced_redirect": "advanced article search",
+	"no_results_found" : "No results found",
+	"searching" :"Searching...",
+	"min_characters": "Please enter at least {minLenght} characters to search.",
+
+
+	"advanced_title" : "Advanced Articles Search Filter",
+	"author": "Author",
+	"authors": "Authors",
+	"authors_select": "Select an author",
+	"search_button":"Search",
+	"search_sortby": "Sort by",
+	"newest" : "Newest",
+	"oldest" : "Oldest",
+	"title": "Title",
+	"abstract":"Abstract",
+	"tags":"Tags",
+	"views":"Views",
+	"previous": "Previous",
+	"next": "Next"
 
 
 }

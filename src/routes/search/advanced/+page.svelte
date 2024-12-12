@@ -69,7 +69,7 @@
 </script>
 
 <main class="container mx-auto flex-grow px-4 py-8">
-	<h1 class="mb-8 text-center text-4xl font-bold">Advanced Articles Search Filter</h1>
+	<h1 class="mb-8 text-center text-4xl font-bold">{m.advanced_title()}</h1>
 	<section class="mb-12">
 		<div class="max-w-8xl mx-auto grid grid-cols-1 gap-4 lg:grid-cols-6">
 			<div class="w-full md:mt-12">
@@ -85,19 +85,19 @@
 						/>
 						<Input
 							type="text"
-							placeholder="Search..."
+							placeholder={m.search_placeholder()}
 							class="pl-8"
 							bind:value={input}
 							oninput={handleInput}
 						/>
 					</div>
-					<Button onclick={handleInput} disabled={loading}>Search</Button>
+					<Button onclick={handleInput} disabled={loading}>{m.search_button()}</Button>
 				</div>
 
 				{#if query.length > 0 && query.length < minLength}
 					<Card.Root class="mt-2 p-3 ">
 						<p class="text-sm text-muted-foreground">
-							Please enter at least {minLength} characters to search
+							{m.min_characters({minLenght})}
 						</p>
 					</Card.Root>
 				{/if}
@@ -106,15 +106,15 @@
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger
 							class={buttonVariants({ variant: 'outline', size: 'sm' })}
-							disabled={loading}>Sort by</DropdownMenu.Trigger
+							disabled={loading}>{m.search_sortby()}</DropdownMenu.Trigger
 						>
 						<DropdownMenu.Content class="w-36">
 							<DropdownMenu.Group>
-								<DropdownMenu.GroupHeading>Sort by</DropdownMenu.GroupHeading>
+								<DropdownMenu.GroupHeading>{m.search_sortby()}</DropdownMenu.GroupHeading>
 								<DropdownMenu.Separator />
 								<DropdownMenu.RadioGroup bind:value={sort} onValueChange={handleInput}>
-									<DropdownMenu.RadioItem value="newest">Newest</DropdownMenu.RadioItem>
-									<DropdownMenu.RadioItem value="oldest">Oldest</DropdownMenu.RadioItem>
+									<DropdownMenu.RadioItem value="newest">{m.newest()}</DropdownMenu.RadioItem>
+									<DropdownMenu.RadioItem value="oldest">{m.oldest()}</DropdownMenu.RadioItem>
 								</DropdownMenu.RadioGroup>
 							</DropdownMenu.Group>
 						</DropdownMenu.Content>
@@ -123,11 +123,11 @@
 				<Table.Root>
 					<Table.Header>
 						<Table.Row>
-							<Table.Head class="w-[150px]">Author</Table.Head>
-							<Table.Head>Title</Table.Head>
-							<Table.Head class="hidden sm:table-cell	">Abstract</Table.Head>
-							<Table.Head>Tags</Table.Head>
-							<Table.Head class="text-right">Views</Table.Head>
+							<Table.Head class="w-[150px]">{m.author()}</Table.Head>
+							<Table.Head>{m.title()}</Table.Head>
+							<Table.Head class="hidden sm:table-cell	">{m.abstract()}</Table.Head>
+							<Table.Head>{m.tags()}</Table.Head>
+							<Table.Head class="text-right">{m.views()}</Table.Head>
 						</Table.Row>
 					</Table.Header>
 
@@ -145,7 +145,7 @@
 					{:else}
 						{#await data.results then results}
 							{#if results?.count === 0}
-								<Table.Caption>No results found</Table.Caption>
+								<Table.Caption>{m.no_results_found()}</Table.Caption>
 							{:else}
 								<Table.Body>
 									{#each results?.items as result}
@@ -185,7 +185,7 @@
 								</Table.Body>
 							{/if}
 						{:catch error}
-							<Table.Caption>Error: {error}</Table.Caption>
+							<Table.Caption>{m.load_error()}: {error}</Table.Caption>
 						{/await}
 					{/if}
 				</Table.Root>
@@ -198,7 +198,7 @@
 						submit={handleInput}
 					/>
 				{:catch error}
-					<p>Error: {error}</p>
+					<p>{m.load_error()}: {error}</p>
 				{/await}
 			</div>
 		</div>

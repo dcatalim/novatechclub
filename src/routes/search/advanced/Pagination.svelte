@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from '$lib/paraglide/messages.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { MediaQuery } from 'runed';
 
@@ -24,7 +25,7 @@
 			<Pagination.Item>
 				<Pagination.PrevButton disabled={loading}>
 					<ChevronLeft class="size-4" />
-					<span class="hidden sm:block">Previous</span>
+					<span class="hidden sm:block">{m.previous()}</span>
 				</Pagination.PrevButton>
 			</Pagination.Item>
 			{#each pages as page (page.key)}
@@ -42,7 +43,7 @@
 			{/each}
 			<Pagination.Item>
 				<Pagination.NextButton disabled={loading}>
-					<span class="hidden sm:block">Next</span>
+					<span class="hidden sm:block">{m.next()}</span>
 					<ChevronRight class="size-4" />
 				</Pagination.NextButton>
 			</Pagination.Item>

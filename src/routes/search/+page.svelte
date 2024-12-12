@@ -74,7 +74,7 @@
 </script>
 
 <main class="container mx-auto flex-grow content-center px-4 py-8">
-	<h1 class="mb-8 text-center text-4xl font-bold">Articles Search Engine</h1>
+	<h1 class="mb-8 text-center text-4xl font-bold">{m.search_title()}</h1>
 
 	<section class="mb-12">
 		<div class="mx-auto max-w-lg">
@@ -85,7 +85,7 @@
 				/>
 				<Input
 					type="text"
-					placeholder="Search..."
+					placeholder={m.search_placeholder()}
 					class="pl-8"
 					bind:value={input}
 					oninput={handleInput}
@@ -96,10 +96,10 @@
 				<Card.Root class="mt-2 p-3 ">
 					{#if search.length < minLenght}
 						<p class="text-sm text-muted-foreground">
-							Please enter at least {minLenght} characters to search
+							{m.min_characters({minLenght})}
 						</p>
 					{:else if loading}
-						<p class="text-sm text-muted-foreground">Searching...</p>
+						<p class="text-sm text-muted-foreground">{m.searching()}</p>
 					{:else if results}
 						<ul>
 							{#each results as result}
@@ -115,7 +115,7 @@
 								</li>
 							{/each}
 							{#if results.length === 0}
-								<p class="text-sm text-muted-foreground">No results found</p>
+								<p class="text-sm text-muted-foreground">{m.no_results_found()}</p>
 							{/if}
 						</ul>
 					{/if}
@@ -123,7 +123,7 @@
 			{/if}
 
 			<div class="p-2 justify-items-center">
-				<p class="text-sm text-muted-foreground">Or try our <a href="/search/advanced" class="hover:underline font-medium">advanced article search</a></p>
+				<p class="text-sm text-muted-foreground">{m.search_advanced_alternative()} <a href="/search/advanced" class="hover:underline font-medium">{m.search_advanced_redirect()}</a></p>
 			</div>
 		</div>
 	</section>

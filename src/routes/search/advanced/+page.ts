@@ -1,6 +1,7 @@
 import { error, json } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import { pb } from '$lib/pocketbase';
+import * as m from '$lib/paraglide/messages.js';
 import { config } from '$lib/config';
 
 export const load = (async ({ url }) => {
@@ -97,7 +98,7 @@ export const load = (async ({ url }) => {
 	}
 
 	return {
-		title: `Advanced Search | ${config.title}`,
+		title: `${m.advanced_search()}  | ${config.title}`,
 		results: getResults(),
 		authors: await getAuthors()
 	};

@@ -1,8 +1,9 @@
 import { config } from '$lib/config';
+import * as m from '$lib/paraglide/messages.js';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {
     return {
-		title: `Search Engine | ${config.title}`,
+		title: `${m.search_engine()} | ${config.title}`,
     };
 }) satisfies PageLoad;
