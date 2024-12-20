@@ -2,7 +2,7 @@ export const config = {
     title: 'Nova Tech Club',
     description: '',
     keywords: '',
-    email: 'techclubatnova@novabsbe.pt',
+    email: 'techclub@novasbe.pt',
     domain: 'techclubatnova.com',
     logo_path: `techclubatnova.com/logo-white.svg`,
     socials_url: {

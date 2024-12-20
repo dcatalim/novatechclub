@@ -97,7 +97,7 @@
 				{#if query.length > 0 && query.length < minLength}
 					<Card.Root class="mt-2 p-3 ">
 						<p class="text-sm text-muted-foreground">
-							{m.min_characters({minLenght})}
+							{m.min_characters({minLength})}
 						</p>
 					</Card.Root>
 				{/if}

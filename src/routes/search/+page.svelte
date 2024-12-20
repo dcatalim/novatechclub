@@ -11,12 +11,12 @@
 	let results = $state([]);
 	let loading = $state(false);
 
-	const minLenght = 2;
+	const minLength = 2;
 
 	let debounceTimeout: NodeJS.Timeout;
 
 	async function fetchResults() {
-		if (search.length < minLenght) {
+		if (search.length < minLength) {
 			results = [];
 			return;
 		}
@@ -94,9 +94,9 @@
 
 			{#if search.length > 0}
 				<Card.Root class="mt-2 p-3 ">
-					{#if search.length < minLenght}
+					{#if search.length < minLength}
 						<p class="text-sm text-muted-foreground">
-							{m.min_characters({minLenght})}
+							{m.min_characters({minLength})}
 						</p>
 					{:else if loading}
 						<p class="text-sm text-muted-foreground">{m.searching()}</p>

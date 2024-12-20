@@ -41,6 +41,7 @@
 			<DropdownMenu.Item onclick={() => switchToLanguage('pt')}>Português</DropdownMenu.Item>
 			<DropdownMenu.Item onclick={() => switchToLanguage('en')}>English</DropdownMenu.Item>
 			<DropdownMenu.Item onclick={() => switchToLanguage('de')}>Deutsche</DropdownMenu.Item>
+			<DropdownMenu.Item onclick={() => switchToLanguage('it')}>Italiano</DropdownMenu.Item>
 		</DropdownMenu.Content>
 	</DropdownMenu.Root>
 

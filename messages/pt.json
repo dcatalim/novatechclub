@@ -116,7 +116,7 @@
     "search_advanced_redirect": "busca avançada de artigos",
     "no_results_found": "Nenhum resultado encontrado",
     "searching": "Buscando...",
-    "min_characters": "Por favor, insira pelo menos {minLenght} caracteres para buscar.",
+    "min_characters": "Por favor, insira pelo menos {minLength} caracteres para buscar.",
 
     "advanced_title": "Filtro de Busca Avançada de Artigos",
     "author": "Autor",
