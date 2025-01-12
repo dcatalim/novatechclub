@@ -14,7 +14,7 @@ export function load() {
 			return projects;
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 
@@ -28,7 +28,7 @@ export function load() {
 			return events;
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 
@@ -42,7 +42,7 @@ export function load() {
 			return articles;
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 

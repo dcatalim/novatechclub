@@ -14,7 +14,7 @@ export async function load({ params }) {
 			return project;
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 

@@ -10,6 +10,6 @@ export async function POST({ request }) {
 		return json(article.views);
 	} catch (err) {
 		console.log('Page view counter error: ' + err);
-		error(404, err.message ?? 'Error');
+		return err
 	}
 }

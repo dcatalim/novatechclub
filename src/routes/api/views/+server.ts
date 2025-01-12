@@ -24,6 +24,6 @@ export async function POST({ request }) {
 		}
 	} catch (err) {
 		console.log('Page view counter error: ' + err);
-		error(404, err.message ?? 'Error');
+		return err
 	}
 }

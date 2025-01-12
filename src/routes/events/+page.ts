@@ -14,7 +14,7 @@ export function load() {
 			return events
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 

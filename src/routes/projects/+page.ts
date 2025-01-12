@@ -15,7 +15,7 @@ export function load() {
 			return projects
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 

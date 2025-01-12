@@ -30,7 +30,7 @@ export async function load({ params, fetch }) {
 			return article2;
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 

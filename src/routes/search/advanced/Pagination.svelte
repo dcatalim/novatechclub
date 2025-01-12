@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
-	import { MediaQuery } from 'runed';
+	import { MediaQuery } from "svelte/reactivity";
 
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';

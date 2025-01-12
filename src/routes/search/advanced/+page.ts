@@ -68,7 +68,7 @@ export const load = (async ({ url }) => {
 			return { items: results, count };
 		} catch (err) {
 			// console.log(err);
-			// error(404, err.message ?? 'Error');
+			// return err
 		}
 	};
 

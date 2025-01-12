@@ -11,7 +11,7 @@ export async function load({ params }) {
 			return event;
 		} catch (err) {
 			// console.log(err);
-			error(404, err.message ?? 'Error');
+			return err
 		}
 	};
 

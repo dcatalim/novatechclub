@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Nav from './header/Nav.svelte';
-	import { MediaQuery } from 'runed';
+	import { MediaQuery } from "svelte/reactivity";
 	import MobileNav from './header/MobileNav.svelte';
 	const isDesktop = new MediaQuery('(min-width: 768px)');
 </script>
@@ -13,7 +13,7 @@
 			</a>
 		</div>
 
-		{#if isDesktop.matches}
+		{#if isDesktop.current}
 			<Nav />
 		{:else}
 			<MobileNav />
