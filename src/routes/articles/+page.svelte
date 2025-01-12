@@ -48,7 +48,7 @@
 				/>
 			</div>
 
-			<div class="justify-items-center p-2">
+			<div class="flex justify-center p-2">
 				<p class="text-sm text-muted-foreground">
 					{m.search_advanced_alternative()}
 					<a href="/search" class="font-medium hover:underline">{m.search_title()} <i>(beta)</i></a>

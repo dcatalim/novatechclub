@@ -16,8 +16,17 @@
 
 	let { views } = $props();
 
-	$effect(() => console.log(views));
+	// $effect(() => console.log(views));
 </script>
+
+<section class="mt-16 text-center">
+	<h2 class="mb-4 text-3xl font-bold">{m.about_joinus_title()}</h2>
+	<p class="mb-8 text-xl">{m.about_joinus_description()}</p>
+	<Button size="lg" href={config.socials_url.whatsapp} target="_blank" rel="noopener noreferrer">
+		{m.about_joinus_button()}
+		<MessageCircleMore class="ml-2" />
+	</Button>
+</section>
 
 <footer class="container mx-auto px-4 py-8">
 	<Separator class="mb-8" />

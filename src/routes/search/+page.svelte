@@ -122,7 +122,7 @@
 				</Card.Root>
 			{/if}
 
-			<div class="p-2 justify-items-center">
+			<div class="p-2 flex justify-center">
 				<p class="text-sm text-muted-foreground">{m.search_advanced_alternative()} <a href="/search/advanced" class="hover:underline font-medium">{m.search_advanced_redirect()}</a></p>
 			</div>
 		</div>

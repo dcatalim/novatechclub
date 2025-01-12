@@ -82,12 +82,5 @@
 		</div>
 	</section>
 
-	<section class="mt-16 text-center">
-		<h2 class="mb-4 text-3xl font-bold">{m.about_joinus_title()}</h2>
-		<p class="mb-8 text-xl">{m.about_joinus_description()}</p>
-		<Button size="lg" href="/contacts">
-			{m.about_joinus_button()}
-			<Users class="ml-2" />
-		</Button>
-	</section>
+	
 </main>
