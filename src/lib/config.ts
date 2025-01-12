@@ -13,6 +13,6 @@ export const config = {
   
     },
     sitemap: {
-        pages: ['about', 'articles', 'contacts', 'events', 'projects']
+        pages: ['about', 'articles', 'contacts', 'events', 'projects', 'search']
     }
 }

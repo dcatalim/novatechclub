@@ -32,8 +32,8 @@
 	<section class="py-16" id="events">
 		<h2 class="mb-8 text-center text-3xl font-bold">{m.upcoming_events()}</h2>
 		{#await data.events}
-			<div class="w-full justify-items-center">
-				<LoaderCircle class="animate-spin" />
+		<div class="flex w-full justify-center ">
+			<LoaderCircle class="animate-spin" />
 			</div>
 		{:then events}
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -81,8 +81,8 @@
 		<h2 class="mb-8 text-center text-3xl font-bold">{m.our_projects()}</h2>
 
 		{#await data.projects}
-			<div class="w-full justify-items-center">
-				<LoaderCircle class="animate-spin" />
+		<div class="flex w-full justify-center ">
+			<LoaderCircle class="animate-spin" />
 			</div>
 		{:then projects}
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -111,8 +111,8 @@
 		<h2 class="mb-8 text-center text-3xl font-bold">{m.latest_articles()}</h2>
 
 		{#await data.articles}
-			<div class="w-full justify-items-center">
-				<LoaderCircle class="animate-spin" />
+		<div class="flex w-full justify-center ">
+			<LoaderCircle class="animate-spin" />
 			</div>
 		{:then articles}
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">

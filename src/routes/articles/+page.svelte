@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 	import { formatDate } from '$lib/tools';
-	import * as Card from "$lib/components/ui/card/index.js";	
+	import * as Card from '$lib/components/ui/card/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Badge } from '$lib/components/ui/badge/index.js';
@@ -48,14 +48,18 @@
 				/>
 			</div>
 
-			<div class="p-2 justify-items-center">
-				<p class="text-sm text-muted-foreground">{m.search_advanced_alternative()} <a href="/search" class="hover:underline font-medium">{m.search_title()} <i>(beta)</i></a></p>
+			<div class="justify-items-center p-2">
+				<p class="text-sm text-muted-foreground">
+					{m.search_advanced_alternative()}
+					<a href="/search" class="font-medium hover:underline">{m.search_title()} <i>(beta)</i></a>
+				</p>
 			</div>
 		</div>
 	</section>
 
 	{#await filtered}
-		<div class="w-full justify-items-center">
+		<div class="flex w-full justify-center
+">
 			<LoaderCicle class="animate-spin" />
 		</div>
 	{:then articles}

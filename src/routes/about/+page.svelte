@@ -72,8 +72,8 @@
 		<p class="mb-8 text-center font-semibold text-2xl">
 			Supported by:
 		</p>
-		<div class="mx-auto w-full justify-items-center">
-			<div class="w-[220px]">
+		<div class="flex w-full justify-center ">
+			<div class="w-[220px] ">
 				<a href="https://www.hetzner.com/" target="_blank" rel="noreferrer nofollow">
 					<img src="/hetzner-logo.svg" alt="Hetzner Logo" />
 				</a>

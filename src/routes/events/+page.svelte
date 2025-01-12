@@ -56,7 +56,8 @@
 	</section>
 
 	{#await filtered}
-		<div class="w-full justify-items-center">
+		<div class="flex w-full justify-center
+">
 			<LoaderCircle class="animate-spin" />
 		</div>
 	{:then events}
