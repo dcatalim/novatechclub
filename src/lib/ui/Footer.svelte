@@ -7,11 +7,10 @@
 
 	import Mail from 'lucide-svelte/icons/mail';
 	import Eye from 'lucide-svelte/icons/eye';
-	import Linkedin from 'lucide-svelte/icons/linkedin';
-	import Instagram from 'lucide-svelte/icons/instagram';
-	import Github from 'lucide-svelte/icons/github';
-	import MessageCircleMore from 'lucide-svelte/icons/message-circle-more';
-
+	import Whatsapp from '$lib/icons/Whatsapp.svelte';
+	import Linkedin from '$lib/icons/Linkedin.svelte';
+	import Github from '$lib/icons/Github.svelte';
+	import Instagram from '$lib/icons/Instagram.svelte';
 	const currentYear = new Date().getFullYear();
 
 	let { views } = $props();
@@ -24,7 +23,7 @@
 	<p class="mb-8 text-xl">{m.about_joinus_description()}</p>
 	<Button size="lg" href={config.socials_url.whatsapp} target="_blank" rel="noopener noreferrer">
 		{m.about_joinus_button()}
-		<MessageCircleMore class="ml-2" />
+		<Whatsapp class="ml-2" />
 	</Button>
 </section>
 
@@ -75,7 +74,7 @@
 				size="icon"
 				href={config.socials_url.whatsapp}
 				target="_blank"
-				rel="noopener noreferrer"><MessageCircleMore /></Button
+				rel="noopener noreferrer"><Whatsapp /></Button
 			>
 		</div>
 	</div>

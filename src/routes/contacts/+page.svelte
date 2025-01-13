@@ -9,10 +9,10 @@
 	import { PUBLIC_WEB3FORMS_KEY } from '$env/static/public';
 	
 	import Mail from 'lucide-svelte/icons/mail';
-	import Linkedin from 'lucide-svelte/icons/linkedin';
-	import Instagram from 'lucide-svelte/icons/instagram';
-	import Github from 'lucide-svelte/icons/github';
-	import MessageCircleMore from 'lucide-svelte/icons/message-circle-more';
+	import Whatsapp from '$lib/icons/Whatsapp.svelte';
+	import Linkedin from '$lib/icons/Linkedin.svelte';
+	import Instagram from '$lib/icons/Instagram.svelte';
+	import Github from '$lib/icons/Github.svelte';
 
 	let status = $state('');
 	let name = $state('');
@@ -153,7 +153,7 @@
 							size="icon"
 							href={config.socials_url.whatsapp}
 							target="_blank"
-							rel="noopener noreferrer"><MessageCircleMore /></Button
+							rel="noopener noreferrer"><Whatsapp /></Button
 						>
 					</div>
 				</div>
