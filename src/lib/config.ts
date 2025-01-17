@@ -1,9 +1,9 @@
 export const config = {
     title: 'Nova Tech Club',
-    description: '',
-    keywords: '',
+    description: 'Nova Tech Club is a community of passionate tech enthusiasts dedicated to pushing the boundaries of innovation. Our diverse departments work together to create a dynamic and inspiring environment for all members.',
+    keywords: 'nova,novasbe,sbe,club,tech,techclub',
     email: 'techclub@novasbe.pt',
-    domain: 'techclubatnova.com',
+    domain: 'techclubnova.com',
     logo_path: `techclubatnova.com/logo-white.svg`,
     socials_url: {
         instagram: 'https://www.instagram.com/techclubatnova',
