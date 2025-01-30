@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 
-	import * as Card from "$lib/components/ui/card/index.js";
+	import * as Card from '$lib/components/ui/card/index.js';
 	import { Button } from '$lib/components/ui/button';
 
 	import Calendar from 'lucide-svelte/icons/calendar';
@@ -24,20 +24,17 @@
 		},
 		{
 			name: m.dep_marketing(),
-			description:
-				m.dep_marketing_desc(),
+			description: m.dep_marketing_desc(),
 			icon: Megaphone
 		},
 		{
 			name: m.dep_research(),
-			description:
-				m.dep_research_desc(),
+			description: m.dep_research_desc(),
 			icon: BookOpenText
 		},
 		{
 			name: m.dep_sales(),
-			description:
-				m.dep_sales_desc(),
+			description: m.dep_sales_desc(),
 			icon: CircleAlert
 		}
 	];
@@ -69,18 +66,16 @@
 	</section>
 
 	<section class="my-12">
-		<p class="mb-8 text-center font-semibold text-2xl">
-			Supported by:
-		</p>
-		<div class="flex w-full justify-center ">
-			<div class="w-[220px] ">
-				<a href="https://www.hetzner.com/" target="_blank" rel="noreferrer nofollow">
-					<img src="/hetzner-logo.svg" alt="Hetzner Logo" />
+		<p class="mb-8 text-center text-2xl font-semibold">Supported by:</p>
+		<div class="flex w-full justify-center">
+			<div class="w-[220px]">
+				<a
+					href="https://www.hetzner.com/?mtm_campaign=novatechclub_sponsoring&mtm_medium=referral&mtm_content=logo_link"
+					target="_blank"
+				>
+					<img src="/hetzner-logo.jpg" alt="Hetzner Logo" />
 				</a>
 			</div>
-			
 		</div>
 	</section>
-
-	
 </main>
